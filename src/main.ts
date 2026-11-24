@@ -39,7 +39,9 @@ function clearHeartbeat(): void {
   stopHeartbeat = null;
 }
 
-function shell(inner: string, opts?: { hideBrand?: boolean }): string {
+function shell(inner: string, opts?: { hideBrand?: boolean; mode?: "lobby" | "play" }): string {
+  const mode = opts?.mode ?? (opts?.hideBrand ? "lobby" : "play");
+  document.body.dataset.mode = mode;
   const brand = opts?.hideBrand
     ? ""
     : `<header class="top">

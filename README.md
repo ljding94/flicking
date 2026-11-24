@@ -27,30 +27,20 @@ Static output is in `dist/` (Vite). Cloudflare Pages also serves `functions/`.
 
 Match sync uses PeerJS (browser P2P). The room **directory** uses Cloudflare Pages + KV.
 
-## Deploy (Cloudflare Pages)
+## Deploy (Cloudflare Worker + assets)
 
-### One-time KV (room directory)
-
-```bash
-npx wrangler login
-npx wrangler kv namespace create ROOMS
-```
-
-Paste the namespace id into `wrangler.toml` (`id` / `preview_id`), and in the Pages project:
-
-**Settings → Functions → KV namespace bindings** → bind `ROOMS`.
-
-Build settings:
+Git / Workers Builds should use:
 
 - **Build command:** `npm run build`
-- **Build output directory:** `dist`
+- **Deploy command:** `npx wrangler deploy`
 
-Or CLI:
+Local:
 
 ```bash
-npm run build
-npx wrangler pages deploy dist --project-name flicking
+npm run deploy
 ```
+
+Room directory uses KV binding `ROOMS` (see `wrangler.toml`). Worker serves `/api/rooms` and static files from `dist/`.
 
 ## Controls
 

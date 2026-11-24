@@ -1,6 +1,13 @@
 name = "flicking"
+main = "worker.ts"
 compatibility_date = "2025-11-01"
-pages_build_output_dir = "dist"
+
+# Static Vite build. Worker handles /api/rooms, then falls through to assets.
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
 
 [[kv_namespaces]]
 binding = "ROOMS"
