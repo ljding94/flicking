@@ -1,5 +1,5 @@
 import { TUNING } from "../game/tuning";
-import type { AimState, Match } from "../game/types";
+import type { AimState, Match, Side } from "../game/types";
 import { alivePieces } from "../game/match";
 
 export function createAimState(): AimState {
@@ -11,9 +11,19 @@ export function createAimState(): AimState {
   };
 }
 
-function hitTest(match: Match, x: number, y: number): string | null {
+export interface AimOptions {
+  /** Online: only this side may aim (must also be match.turn). */
+  onlySide?: Side | null;
+}
+
+function hitTest(
+  match: Match,
+  x: number,
+  y: number,
+  onlySide?: Side | null,
+): string | null {
+  if (onlySide && match.turn !== onlySide) return null;
   const own = alivePieces(match, match.turn);
-  // Prefer smaller pieces on top of larger when overlapping
   const sorted = [...own].sort((a, b) => a.radius - b.radius);
   for (const piece of sorted) {
     const dx = x - piece.x;
@@ -30,9 +40,10 @@ export function aimPointerDown(
   match: Match,
   x: number,
   y: number,
+  opts: AimOptions = {},
 ): void {
   if (match.phase !== "aim") return;
-  const id = hitTest(match, x, y);
+  const id = hitTest(match, x, y, opts.onlySide);
   if (!id) return;
   aim.pieceId = id;
   aim.pointerX = x;

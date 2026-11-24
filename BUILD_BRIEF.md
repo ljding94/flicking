@@ -105,9 +105,10 @@ Follow `docs/VISUAL_BRIEF.md`. Summary:
 1. ~~Scaffold Vite+TS; canvas loop; ice + opening pieces.~~
 2. ~~Aim drag + Matter flick + stop detection + ejection + win + turn swap + timer.~~
 3. ~~Classic mode playable end-to-end (hotseat).~~
-4. Visual + physics revise per briefs ← **current**
-5. Items mode.
-6. README + `wrangler` / Pages deploy notes; polish UX.
+4. ~~Visual + physics revise per briefs.~~
+5. ~~Online tables (PeerJS, no login): create/join room code, host=red / guest=blue, spectators.~~ ← **current**
+6. Items mode.
+7. Cloudflare Pages auto-deploy polish.
 
 ## Out of scope for first playable
 
