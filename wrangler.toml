@@ -2,9 +2,7 @@ name = "flicking"
 compatibility_date = "2025-11-01"
 pages_build_output_dir = "dist"
 
-# One-time: npx wrangler kv namespace create ROOMS
-# then paste the id below (also bind ROOMS in Cloudflare Pages → Settings → Functions).
 [[kv_namespaces]]
 binding = "ROOMS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "24d84a96437d4f428fa57093ee7fa8ac"
+preview_id = "24d84a96437d4f428fa57093ee7fa8ac"
