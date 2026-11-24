@@ -10,7 +10,7 @@ export const TUNING: Tuning = {
   restitution: 0.88,
   obstacleRestitution: 0.9,
   maxDrag: 140,
-  maxSpeed: 26,
+  maxSpeed: 18,
   rageMultiplier: 1.65,
   turnMs: 20_000,
   sleepSpeed: 0.16,

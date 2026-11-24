@@ -68,7 +68,7 @@ frictionAir (TUNING.friction)  0.032
 restitution                    0.88
 obstacleRestitution            0.90
 maxDrag                        140
-maxSpeed                       26     // solo full flick ≈ 1× ice height
+maxSpeed                       18     // capped so opening heavy flicks can't snipe across
 sleepSpeed                     0.16
 turnMs                         20000
 ```
